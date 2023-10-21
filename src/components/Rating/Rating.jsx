@@ -24,6 +24,28 @@
  * </div>
  */
 
-export function Rating() {
-	return null;
-}
+ import React, { useState } from "react";
+ import "./Rating.css";
+ 
+ export function Rating() {
+   const [rating, setRating] = useState(0);
+ 
+   const handleClick = (index) => {
+	 setRating(index + 1);
+   };
+ 
+   return (
+	 <div id="rating">
+	   {[...Array(5)].map((_, index) => (
+		 <span
+		   key={index}
+		   className={index < rating ? "active" : ""}
+		   onClick={() => handleClick(index)}
+		 >
+		   ★
+		 </span>
+	   ))}
+	 </div>
+   );
+ }
+ 

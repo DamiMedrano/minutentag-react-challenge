@@ -4,9 +4,10 @@ import { ImageGallery } from "./components/ImageGallery";
 import { PlayerStatus } from "./components/PlayerStatus";
 import { TeamsList } from "./components/TeamsList";
 import { Grocery } from "./components/Grocery";
+import { ListItemsForNavigation } from "./components/ListItemsForNavigation/ListItemsForNavigation";
+import { Rating } from "./components/Rating/Rating";
 
 import './App.css';
-import { ListItemsForNavigation } from "./components/ListItemsForNavigation/ListItemsForNavigation";
 
 export default function App() {
 
@@ -61,6 +62,10 @@ export default function App() {
       <div className="test-container">
         <h3>'ListItemsForNavigation' Game of Dogs cast:</h3>
         <ListItemsForNavigation products={products} />
+      </div>
+      <div className="test-container">
+        <h3>'Rating' test, rate Game of Dogs series</h3>
+        <Rating products={products} />
       </div>
     </div>
   );

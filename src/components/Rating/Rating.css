@@ -1,0 +1,12 @@
+#rating {
+    font-size: 24px; /* Set the font size for stars */
+}
+
+#rating span {
+    color: #ccc; /* Default color for stars */
+    cursor: pointer;
+}
+
+#rating span.active {
+    color: #fdd835; /* Color for active stars */
+}
