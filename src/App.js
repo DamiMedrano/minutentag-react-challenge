@@ -1,4 +1,3 @@
-
 import { Message } from "./components/Message";
 import { FocusableInput } from "./components/FocusableInput";
 import { ImageGallery } from "./components/ImageGallery";
@@ -25,7 +24,8 @@ export default function App() {
       </div>
       <div className="test-container">
         <h3>'FocusableInput' test</h3>
-        <FocusableInput focused={false} />
+        <FocusableInput focused={true} placeholder="(starts focused)" />
+        <FocusableInput focused={false} placeholder="(needs to be focused)" />
       </div>
       <div className="test-container">
         <h3>'ImageGallery' test</h3>
