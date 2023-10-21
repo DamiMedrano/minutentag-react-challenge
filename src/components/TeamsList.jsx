@@ -67,31 +67,57 @@ const TEAMS = [
 
 export function TeamsList() {
 	const [teams, setTeams] = useState(TEAMS);
-
+  
 	// Order teams by score (highest to lowest)
 	function orderTeamByScoreHighestToLowest() {
-		// Write your code here
+	  const sortedTeams = [...teams].sort((a, b) =>
+		b.games.reduce((acc, game) => acc + game.score, 0) -
+		a.games.reduce((acc, game) => acc + game.score, 0)
+	  );
+	  setTeams(sortedTeams);
 	}
-
+  
 	// Order teams by score (lowest to highest)
 	function orderTeamByScoreLowestToHighest() {
-		// Write your code here
+	  const sortedTeams = [...teams].sort((a, b) =>
+		a.games.reduce((acc, game) => acc + game.score, 0) -
+		b.games.reduce((acc, game) => acc + game.score, 0)
+	  );
+	  setTeams(sortedTeams);
 	}
-
-	// Filtering teams that with at least 3 players
+  
+	// Filtering teams with at least 3 players
 	function teamsWithMoreThanThreePlayers() {
-		// Write your code here
+	  const filteredTeams = TEAMS.filter((team) => team.players.length > 3);
+	  setTeams(filteredTeams);
 	}
-
+  
 	return (
+	  <div>
 		<div>
+			<h4>Filters</h4>
 			<button onClick={() => setTeams(TEAMS)}>Initial list</button>
-
-			<button>Highest to Lowest</button>
-			<button>Lowest to Highest</button>
-			<button>Teams with at least 3 players</button>
-
-			<ul className="teams">{/** Render the list of teams */}</ul>
+			<button onClick={teamsWithMoreThanThreePlayers}>Teams with at least 3 players</button>
 		</div>
+		<div>
+			<h4>Sort</h4>
+			<button onClick={orderTeamByScoreHighestToLowest}>Highest to Lowest Score</button>
+			<button onClick={orderTeamByScoreLowestToHighest}>Lowest to Highest Score</button>
+		</div>
+		
+		
+		
+		<div className="teams">
+			<ul>
+				{teams.map((team, index) => (
+					<li key={index}>
+					{team.name} / {team.players.length} players /{" "}
+					{team.games.reduce((acc, game) => acc + game.score, 0)} total score
+					</li>
+				))}
+			</ul>
+		</div>
+		
+	  </div>
 	);
-}
+  }

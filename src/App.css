@@ -38,7 +38,7 @@
 }
 
 .App .test-container {
-  padding: 80px 0;
+  padding: 40px 0;
   border-bottom: 1px solid #202020;
 }
 
@@ -66,4 +66,20 @@
   top: 10px;
   right: 10px;
   border-radius: 4px;
+}
+
+.teams {
+  display: flex;
+  justify-content: center;
+}
+
+.teams ul {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+
+.teams li {
+  list-style-type: none;
 }
