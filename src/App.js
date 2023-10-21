@@ -6,6 +6,7 @@ import { TeamsList } from "./components/TeamsList";
 import { Grocery } from "./components/Grocery";
 
 import './App.css';
+import { ListItemsForNavigation } from "./components/ListItemsForNavigation/ListItemsForNavigation";
 
 export default function App() {
 
@@ -56,6 +57,10 @@ export default function App() {
       <div className="test-container">
         <h3>'Grocery' test</h3>
         <Grocery products={products} />
+      </div>
+      <div className="test-container">
+        <h3>'ListItemsForNavigation' Game of Dogs cast:</h3>
+        <ListItemsForNavigation products={products} />
       </div>
     </div>
   );
