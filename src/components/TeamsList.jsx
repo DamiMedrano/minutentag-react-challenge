@@ -107,7 +107,7 @@ export function TeamsList() {
 		
 		
 		
-		<div className="teams">
+		<div className="list-container">
 			<ul>
 				{teams.map((team, index) => (
 					<li key={index}>

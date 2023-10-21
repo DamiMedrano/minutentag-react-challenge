@@ -22,30 +22,52 @@
  *   </ul>
  */
 
-function Product(props) {
-	function handlePlus() {
-		// logic to vote a product
-	}
+import React, { useState } from "react";
 
-	function handleMinus() {
-		// logic to unvote a product
-	}
-
-	return (
-		<li>
-			<span>
-				{/* Product name */} - votes: {/* Number of votes*/}
-			</span>
-			<button onClick={handlePlus}>+</button>
-			<button onClick={handleMinus}>-</button>
-		</li>
-	);
+function Product({ name, votes, onUpvote, onDownvote }) {
+  return (
+    <li style={{width: 200, display: "flex", justifyContent: "space-between"}}>
+      <span>
+        {name} - votes: {votes}
+      </span>
+      <div>
+        <button onClick={onUpvote}>+</button>
+        <button onClick={onDownvote}>-</button>
+      </div>
+      
+    </li>
+  );
 }
 
 export function Grocery({ products }) {
-	return (
-		<ul>
-			{/* Render an array of products, which should call onVote when + or - is clicked */}
-		</ul>
-	);
+  const [productList, setProductList] = useState(products);
+
+  const handleUpvote = (index) => {
+    const updatedProducts = [...productList];
+    updatedProducts[index].votes++;
+    setProductList(updatedProducts);
+  };
+
+  const handleDownvote = (index) => {
+    const updatedProducts = [...productList];
+    updatedProducts[index].votes--;
+    setProductList(updatedProducts);
+  };
+
+  return (
+    <div className="list-container">
+       <ul>
+        {productList.map((product, index) => (
+          <Product
+            key={index}
+            name={product.name}
+            votes={product.votes}
+            onUpvote={() => handleUpvote(index)}
+            onDownvote={() => handleDownvote(index)}
+          />
+        ))}
+      </ul>
+    </div>
+   
+  );
 }

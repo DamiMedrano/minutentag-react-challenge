@@ -3,6 +3,7 @@ import { FocusableInput } from "./components/FocusableInput";
 import { ImageGallery } from "./components/ImageGallery";
 import { PlayerStatus } from "./components/PlayerStatus";
 import { TeamsList } from "./components/TeamsList";
+import { Grocery } from "./components/Grocery";
 
 import './App.css';
 
@@ -13,6 +14,19 @@ export default function App() {
     "https://i.redd.it/1o219x45sz771.jpg",
     "https://i.redd.it/awamt0irl5h41.jpg",
     "https://i.redd.it/0rypgwdi1xe31.jpg",
+  ];
+
+  const products = [
+    { name: "Apples", votes: 0 },
+    { name: "Bananas", votes: 0 },
+    { name: "Oranges", votes: 0 },
+    { name: "Grapes", votes: 0 },
+    { name: "Tofu", votes: 0 },
+    { name: "Tomato", votes: 0 },
+    { name: "Bread", votes: 0 },
+    { name: "Water", votes: 0 },
+    { name: "Rice", votes: 0 },
+    { name: "Potatoes", votes: 0 }
   ];
 
   return (
@@ -38,6 +52,10 @@ export default function App() {
       <div className="test-container">
         <h3>'TeamsList' test</h3>
         <TeamsList />
+      </div>
+      <div className="test-container">
+        <h3>'Grocery' test</h3>
+        <Grocery products={products} />
       </div>
     </div>
   );
